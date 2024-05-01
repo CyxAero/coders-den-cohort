@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'Young Serif';
+    src: url(/assets/fonts/young-serif/YoungSerif-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url(/assets/fonts/outfit/static/Outfit-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url(/assets/fonts/outfit/static/Outfit-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url(/assets/fonts/outfit/static/Outfit-Bold.ttf);
+    font-weight: 700;
+}
+
+:root {
+    /* PROJECT COLORS */
+    /* PRIMARY COLORS */
+    --nutmeg: hsl(14, 45%, 36%);
+    --dark-raspberry: hsl(332, 51%, 32%);
+
+    /* NEUTRAL COLORS */
+    --white: hsl(0, 0%, 100%);
+    --rose-white: hsl(330, 100%, 98%);
+    --eggshell: hsl(30, 54%, 90%);
+    --light-grey: hsl(30, 18%, 87%);
+    --wenge-brown: hsl(30, 10%, 34%);
+    --dark-charcoal: hsl(24, 5%, 18%);
+
+    --font-outfit: 'Outfit', sans-serif;
+    --font-young-serif: 'Young Serif', serif;
+}
+
+* {
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;
+    font-family: var(--font-outfit);
+}
+
+body {
+    background-color: var(--eggshell);
+}
+
+h1,
+h2 {
+    font-family: var(--font-young-serif);
+    margin-block-end: 1.25rem;
+    line-height: 1;
+}
+
+p,
+ul,
+li,
+td {
+    line-height: 1.5;
+    color: var(--wenge-brown);
+}
+
+main {
+    background-color: var(--white);
+
+    @media (width >=1000px) {
+        width: 70%;
+        margin: 4rem auto;
+        border-radius: 34px;
+
+        padding: 1.5rem;
+
+        img {
+            border-radius: 10px;
+        }
+
+        section.content {
+            padding: 2rem 0 0;
+        }
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .content {
+        padding: 2rem 1.5rem 0;
+
+        h1 {
+            color: var(--dark-charcoal);
+        }
+
+        & :is(ul, ol) {
+            li {
+                padding-inline-start: 1rem;
+
+                &:not(:last-child) {
+                    margin-bottom: 6px;
+                }
+
+                span {
+                    font-weight: 600;
+                    color: var(--dark-charcoal);
+                }
+            }
+        }
+
+        section.preparation-time {
+            margin-block: 1.5rem;
+            padding: 1rem;
+            background-color: hsl(332, 51%, 95%);
+            border-radius: 10px;
+
+            h3 {
+                margin-block-end: 1rem;
+                color: var(--dark-raspberry);
+            }
+
+            li::marker {
+                color: var(--dark-raspberry)
+            }
+        }
+
+        section.ingredients {
+            padding-block-end: 1.5rem;
+        }
+
+        section.instructions {
+            padding-block: 1.5rem;
+            border-block: 1px solid var(--light-grey);
+        }
+
+        section.nutrition {
+            padding-block-start: 1.5rem;
+        }
+
+        & :is(section.ingredients, section.instructions, section.nutrition) {
+            h2 {
+                color: var(--nutmeg);
+            }
+
+            &:has(li) {
+                & li::marker {
+                    color: var(--nutmeg);
+                    font-weight: 700;
+                }
+            }
+
+            &:has(table) {
+                table {
+                    margin-block-start: 1rem;
+                    width: 100%;
+                    border-collapse: collapse;
+
+                    tr {
+                        &:not(:last-child) {
+                            td {
+                                border-bottom: 1px solid var(--light-grey);
+                            }
+                        }
+
+                        td {
+                            padding: 1rem 0 1rem 2rem;
+                        }
+                    }
+                }
+
+                & td:nth-child(2) {
+                    color: var(--nutmeg);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+/* @media (width >= 1024px) {
+    main {
+        width: 70%;
+        margin: 4rem auto;
+        border-radius: 34px;
+
+        padding: 1.5rem;
+
+        img {
+            border-radius: 10px;
+        }
+
+        .content {
+            padding: unset;
+            padding: 2rem 0 0;
+        }
+    }
+} */
